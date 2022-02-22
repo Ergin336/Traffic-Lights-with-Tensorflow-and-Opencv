@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Un paso más allá hacia la conducción autonóma: Multri-tracking y clasificación de semaforos en tiempo real &mdash; documentación de Trabajo Final - Visión Artificial - </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Método:" href="procedimiento.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Trabajo Final - Visión Artificial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Procedimiento</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="procedimiento.html">Método:</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Análisis de resultados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="analisisderesultados.html">Análisis de resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Conclusiones y mejoras</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conclusionesymejoras.html">Conclusiones y mejoras</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programación</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Código Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modo de empleo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mododeempleo.html">Contenidos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mododeempleo.html#ficheros-python-necesarios-en-cada-nivel">Ficheros Python necesarios en cada Nivel</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Trabajo Final - Visión Artificial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Un paso más allá hacia la conducción autonóma: Multri-tracking y clasificación de semaforos en tiempo real</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <figure class="align-left">
+<a class="reference internal image-reference" href="_images/tesla.jpg"><img alt="_images/tesla.jpg" src="_images/tesla.jpg" style="width: 231.0px; height: 339.5px;" /></a>
+</figure>
+<section id="un-paso-mas-alla-hacia-la-conduccion-autonoma-multri-tracking-y-clasificacion-de-semaforos-en-tiempo-real">
+<h1>Un paso más allá hacia la conducción autonóma: Multri-tracking y clasificación de semaforos en tiempo real<a class="headerlink" href="#un-paso-mas-alla-hacia-la-conduccion-autonoma-multri-tracking-y-clasificacion-de-semaforos-en-tiempo-real" title="Enlazar permanentemente con este título"></a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="introduccion">
+<h2>Introducción:<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título"></a></h2>
+<p>Como una gran parte de las ideas constructivas, esta surge en base a la pereza humana. Siendo más específico, un día en el que mi compañero y yo nos encontrábamos en el coche yendo hacia la facultad, nos detuvimos ante un semáforo en rojo y a mi, que era el que estaba conduciendo, se me hacía especialmente tedioso el hecho de tener que estar mirándolo constántemente para saber cuando debía continuar con el camino. En especial, ese semáforo se encontraba en una perspectiva complicada y no bastaba con mirar, también era necesario inclinarse y girar la cabeza.</p>
+<p>Fue en ese momento cuando pensamos: ¿no sería interesante tener algún tipo de sensor en el coche que nos indicase cuándo se pone el semáforo en verde?
+Esta sería la ocasión perfecta para poner en práctica nuestros conocimientos adquiridos durante la asignatura de visión artificial, pero, ¿hemos sido capaces de lograrlo a día de hoy?
+La respuesta es que si, al menos, con un gran porcentaje de acierto.</p>
+<p>El modelo actual es capaz de detectar, seguir y clasificar semáforos según su color en cualquier hora del día, tanto en imágenes como en vídeo. No obstante, el proyecto actual tiene una gran limitación temporal al efectuar el seguimiento de cada semáforo en tiempo real. Al final de este proyecto, comentaremos cuales son nuestras ideas para conseguir mejorar este problema de tal modo que  finalmente podamos tener un “sensor de semáforos” operativo en nuestro propio coche de una forma barata y sencilla.</p>
+<p>A continuación, mostraremos los resultados obtenidos y, finalmente, expondremos nuestra metodología hasta las soluciones. De esta manera, el lector no convencido en la detección y clasificación final, no perderá su tiempo en las explicaciones.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="resultados-finales-para-imagenes">
+<h2>Resultados finales para imágenes:<a class="headerlink" href="#resultados-finales-para-imagenes" title="Enlazar permanentemente con este título"></a></h2>
+<figure class="align-center">
+<img alt="_images/2.jpg" src="_images/2.jpg" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/6.jpg"><img alt="_images/6.jpg" src="_images/6.jpg" style="width: 652.3000000000001px; height: 543.4000000000001px;" /></a>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center">
+<img alt="_images/11.jpg" src="_images/11.jpg" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="resultados-finales-para-videos">
+<h2>Resultados finales para vídeos:<a class="headerlink" href="#resultados-finales-para-videos" title="Enlazar permanentemente con este título"></a></h2>
+<figure class="align-default">
+<img alt="_images/final_output.gif" src="_images/final_output.gif" />
+</figure>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Procedimiento</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="procedimiento.html">Método:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="procedimiento.html#nivel-1">Nivel 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedimiento.html#nivel-2">Nivel 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedimiento.html#nivel-3">Nivel 3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Análisis de resultados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="analisisderesultados.html">Análisis de resultados</a></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Conclusiones y mejoras</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conclusionesymejoras.html">Conclusiones y mejoras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conclusionesymejoras.html#conclusiones">Conclusiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusionesymejoras.html#mejoras">Mejoras</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Programación</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Código Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documents.applyModel.html">Aplicacióm modelo IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents.autonomDrive.html">Métodos de selección en imagen y vídeo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documents.trainNeuralNet2.html">Entrenamiento de Red Neuronal</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Modo de empleo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mododeempleo.html">Contenidos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#jpegimages">JPEGImages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#croppedimages">croppedimages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#traffic-light-dataset">traffic_light_dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#test-images">test_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#test-videos">test_videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#model">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#output-images">output_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#output-videos">output_videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#worktrack">worktrack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mododeempleo.html#ficheros-python-necesarios-en-cada-nivel">Ficheros Python necesarios en cada Nivel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#nivel-1">Nivel 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#nivel-2">Nivel 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mododeempleo.html#nivel-3">Nivel 3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="indices-y-busqueda">
+<h1>Indices y búsqueda<a class="headerlink" href="#indices-y-busqueda" title="Enlazar permanentemente con este título"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Índice</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Índice de Módulos</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Página de Búsqueda</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="procedimiento.html" class="btn btn-neutral float-right" title="Método:" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2022, Cesar Abilleira, Ergin Kamberov.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
